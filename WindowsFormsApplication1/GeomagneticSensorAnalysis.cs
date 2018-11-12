@@ -13,7 +13,7 @@ using System.Windows.Forms.DataVisualization.Charting;  //chart 相关引用
 
 using System.Runtime.InteropServices;  //设置鼠标位置所引用的命名空间
 
-namespace GeomagneticSensorAnalysis
+namespace MLInVehSensorAnalysis
 {
     public partial class GeomagneticSensorAnalysis : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace GeomagneticSensorAnalysis
+﻿namespace MLInVehSensorAnalysis
 {
     partial class GeomagneticSensorAnalysis
     {
@@ -377,7 +377,7 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
-            // GeomagneticSensorAnalysis
+            // MLInVehSensorAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -390,7 +390,7 @@
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "GeomagneticSensorAnalysis";
+            this.Name = "MLInVehSensorAnalysis";
             this.Text = "地磁传感器分析 V1.0  ";
             this.Load += new System.EventHandler(this.GeomagneticSensorAnalysis_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.chartForXYZ_Paint);
