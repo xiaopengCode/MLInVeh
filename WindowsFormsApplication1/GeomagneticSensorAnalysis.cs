@@ -22,20 +22,8 @@ namespace MLInVehSensorAnalysis
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void algorithm_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void GeomagneticSensorAnalysis_Load(object sender, EventArgs e)
         {
-
-
             SerialPort1Param_Load(serialPort1, comboBoxForSerialPort);//串口参数加载
         }
 
@@ -126,16 +114,6 @@ namespace MLInVehSensorAnalysis
             groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
             groupBox3.ForeColor = System.Drawing.Color.DeepSkyBlue;
             groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void serialPort_button_Click(object sender, EventArgs e)//串口打开和关闭
@@ -409,7 +387,7 @@ namespace MLInVehSensorAnalysis
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //timerForSerialAutoScan.Stop(); 
+            timerForSerialAutoScan.Stop(); 
         }
 
         private void timerForSerialAutoScan_Tick(object sender, EventArgs e)  //在串口打开后应当关闭
@@ -429,21 +407,6 @@ namespace MLInVehSensorAnalysis
             chartForXYZ.Series[0].Points.AddY(r.Next(-32760, 32760));
             chartForXYZ.Series[1].Points.AddY(r.Next(-32760, 32760));
             chartForXYZ.Series[2].Points.AddY(r.Next(-32760, 32760));
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chartForXYZ_Paint(object sender, PaintEventArgs e)//波形绘制事件
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
 
         }
 

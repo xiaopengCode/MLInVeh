@@ -130,7 +130,6 @@
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 9;
             this.label5.Text = "校验位：";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // comboBoxForCheckBit
             // 
@@ -167,7 +166,6 @@
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "波特率：";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // comboBoxForBaudRate
             // 
@@ -254,7 +252,6 @@
             this.chartForXYZ.TabIndex = 0;
             this.chartForXYZ.Text = "chart1";
             this.chartForXYZ.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartForXYZ_GetToolTipText);
-            this.chartForXYZ.Paint += new System.Windows.Forms.PaintEventHandler(this.chartForXYZ_Paint);
             this.chartForXYZ.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseMove);
             // 
             // groupBox3
@@ -366,7 +363,6 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "保存数据";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
@@ -375,7 +371,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(828, 141);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // MLInVehSensorAnalysis
             // 
@@ -393,7 +388,6 @@
             this.Name = "MLInVehSensorAnalysis";
             this.Text = "地磁传感器分析 V1.0  ";
             this.Load += new System.EventHandler(this.GeomagneticSensorAnalysis_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.chartForXYZ_Paint);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseMove);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
