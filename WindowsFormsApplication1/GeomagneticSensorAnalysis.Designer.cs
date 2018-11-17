@@ -62,6 +62,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBoxSaveDataPos = new System.Windows.Forms.TextBox();
+            this.textBoxImportDataPos = new System.Windows.Forms.TextBox();
+            this.buttonSaveDataPosChange = new System.Windows.Forms.Button();
+            this.buttonImportDataPosChange = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartForXYZ)).BeginInit();
@@ -262,7 +266,7 @@
             this.groupBox3.Controls.Add(this.checkBoxZDisplay);
             this.groupBox3.Controls.Add(this.checkBoxYDisplay);
             this.groupBox3.Controls.Add(this.checkBoxXDisplay);
-            this.groupBox3.Location = new System.Drawing.Point(12, 282);
+            this.groupBox3.Location = new System.Drawing.Point(12, 365);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(144, 157);
             this.groupBox3.TabIndex = 4;
@@ -337,18 +341,22 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.buttonImportDataPosChange);
+            this.groupBox4.Controls.Add(this.buttonSaveDataPosChange);
+            this.groupBox4.Controls.Add(this.textBoxImportDataPos);
+            this.groupBox4.Controls.Add(this.textBoxSaveDataPos);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.button1);
             this.groupBox4.Location = new System.Drawing.Point(12, 196);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(144, 80);
+            this.groupBox4.Size = new System.Drawing.Size(144, 163);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "数据选项";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(26, 51);
+            this.button2.Location = new System.Drawing.Point(6, 85);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -357,7 +365,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 20);
+            this.button1.Location = new System.Drawing.Point(6, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -372,7 +380,39 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
-            // MLInVehSensorAnalysis
+            // textBoxSaveDataPos
+            // 
+            this.textBoxSaveDataPos.Location = new System.Drawing.Point(6, 58);
+            this.textBoxSaveDataPos.Name = "textBoxSaveDataPos";
+            this.textBoxSaveDataPos.Size = new System.Drawing.Size(132, 21);
+            this.textBoxSaveDataPos.TabIndex = 2;
+            // 
+            // textBoxImportDataPos
+            // 
+            this.textBoxImportDataPos.Location = new System.Drawing.Point(6, 114);
+            this.textBoxImportDataPos.Name = "textBoxImportDataPos";
+            this.textBoxImportDataPos.Size = new System.Drawing.Size(132, 21);
+            this.textBoxImportDataPos.TabIndex = 3;
+            // 
+            // buttonSaveDataPosChange
+            // 
+            this.buttonSaveDataPosChange.Location = new System.Drawing.Point(101, 29);
+            this.buttonSaveDataPosChange.Name = "buttonSaveDataPosChange";
+            this.buttonSaveDataPosChange.Size = new System.Drawing.Size(37, 23);
+            this.buttonSaveDataPosChange.TabIndex = 4;
+            this.buttonSaveDataPosChange.Text = "更改";
+            this.buttonSaveDataPosChange.UseVisualStyleBackColor = true;
+            // 
+            // buttonImportDataPosChange
+            // 
+            this.buttonImportDataPosChange.Location = new System.Drawing.Point(101, 85);
+            this.buttonImportDataPosChange.Name = "buttonImportDataPosChange";
+            this.buttonImportDataPosChange.Size = new System.Drawing.Size(37, 23);
+            this.buttonImportDataPosChange.TabIndex = 5;
+            this.buttonImportDataPosChange.Text = "更改";
+            this.buttonImportDataPosChange.UseVisualStyleBackColor = true;
+            // 
+            // GeomagneticSensorAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -385,7 +425,7 @@
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MLInVehSensorAnalysis";
+            this.Name = "GeomagneticSensorAnalysis";
             this.Text = "地磁传感器分析 V1.0  ";
             this.Load += new System.EventHandler(this.GeomagneticSensorAnalysis_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseMove);
@@ -396,6 +436,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -429,6 +470,10 @@
         private System.Windows.Forms.CheckBox checkBoxZMark;
         private System.Windows.Forms.CheckBox checkBoxYMark;
         private System.Windows.Forms.CheckBox checkBoxXMark;
+        private System.Windows.Forms.TextBox textBoxImportDataPos;
+        private System.Windows.Forms.TextBox textBoxSaveDataPos;
+        private System.Windows.Forms.Button buttonImportDataPosChange;
+        private System.Windows.Forms.Button buttonSaveDataPosChange;
     }
 }
 

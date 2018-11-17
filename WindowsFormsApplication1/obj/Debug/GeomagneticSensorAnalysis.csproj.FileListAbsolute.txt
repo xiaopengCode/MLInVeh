@@ -1,0 +1,10 @@
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\bin\Debug\MLInVehSensorAnalysis.exe.config
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\bin\Debug\MLInVehSensorAnalysis.exe
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\bin\Debug\MLInVehSensorAnalysis.pdb
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\GeomagneticSensorAnalysis.csprojAssemblyReference.cache
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\MLInVehSensorAnalysis.Properties.Resources.resources
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\MLInVehSensorAnalysis.GeomagneticSensorAnalysis.resources
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\GeomagneticSensorAnalysis.csproj.GenerateResource.cache
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\GeomagneticSensorAnalysis.csproj.CoreCompileInputs.cache
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\MLInVehSensorAnalysis.exe
+E:\myDevelopment\MLInVeh\WindowsFormsApplication1\obj\Debug\MLInVehSensorAnalysis.pdb
