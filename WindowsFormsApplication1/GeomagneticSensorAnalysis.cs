@@ -338,6 +338,7 @@ namespace MLInVehSensorAnalysis
             }
         }
 
+        static int writeLines = 0;
         private void serialPortDataDelegateShow(string s)
         {
             char[] XYZData = new char[12];
@@ -371,17 +372,47 @@ namespace MLInVehSensorAnalysis
                 chartForXYZ.Series[1].Points.AddY(YData);
                 chartForXYZ.Series[2].Points.AddY(ZData);
             }
-            /*  加入以下部分会影响图形显示的实时性 */
-            //if (richTextBox1.InvokeRequired)  //判断是否需要调用Invoke函数进行处理，保证线程安全
-            //{
-            //    richTextBox1.Invoke(new serialPort1_DataReceivedDelegate(serialPortDataDelegateShow), s+"\r\n");
+            
+            if (richTextBox1.InvokeRequired)  //判断是否需要调用Invoke函数进行处理，保证线程安全
+            {
+                int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height+ richTextBox1.Font.Size));
+                if (writeLines> (boxTextLine+1))  //+1：Show multiple rows
+                {
+                    writeLines = 0;
+                    this.Invoke(new Action(() =>
+                    {
+                        richTextBox1.Clear();
+                    }
+                    ));
+                }
+                writeLines++;
 
+                int dataLength = (s.Length / 2)+ s.Length;
+                char[] data = new char[dataLength];
+                for (int i=0,j=0;i<data.Length;i++)
+                {
+                    if (((i+1)%3)==0)
+                    {
+                        data[i] = ' ';
+                    }
+                    else
+                    {
+                        data[i] = s[j++];
+                    }
+                }
+                string strData = string.Join("",data);
 
-            //}
-            //else
-            //{
-            //    richTextBox1.Text += s+"\r\n";
-            //}
+                string showData = '['+DateTime.Now.ToString()+']'+ strData+"\r\n";
+                this.Invoke(new Action(() =>
+                {
+                    richTextBox1.Text += showData;
+                }
+                ));
+            }
+            else
+            {
+                richTextBox1.Text += s + "\r\n";
+            }
 
         }
 
@@ -395,18 +426,18 @@ namespace MLInVehSensorAnalysis
             SearchAndAddSerialToComboBox(serialPort1, comboBoxForSerialPort);
 
             //以下为模拟测试
-            Random r = new Random();
-            int t = DateTime.Now.Second;
+            //Random r = new Random();
+            //int t = DateTime.Now.Second;
 
-            if (chartForXYZ.Series[0].Points.Count >= chartForXYZ.ChartAreas[0].AxisX.Maximum)
-            {
-                chartForXYZ.Series[0].Points.RemoveAt(0);
-                chartForXYZ.Series[1].Points.RemoveAt(0);
-                chartForXYZ.Series[2].Points.RemoveAt(0);
-            }
-            chartForXYZ.Series[0].Points.AddY(r.Next(-32760, 32760));
-            chartForXYZ.Series[1].Points.AddY(r.Next(-32760, 32760));
-            chartForXYZ.Series[2].Points.AddY(r.Next(-32760, 32760));
+            //if (chartForXYZ.Series[0].Points.Count >= chartForXYZ.ChartAreas[0].AxisX.Maximum)
+            //{
+            //    chartForXYZ.Series[0].Points.RemoveAt(0);
+            //    chartForXYZ.Series[1].Points.RemoveAt(0);
+            //    chartForXYZ.Series[2].Points.RemoveAt(0);
+            //}
+            //chartForXYZ.Series[0].Points.AddY(r.Next(-32760, 32760));
+            //chartForXYZ.Series[1].Points.AddY(r.Next(-32760, 32760));
+            //chartForXYZ.Series[2].Points.AddY(r.Next(-32760, 32760));
 
         }
 
@@ -420,38 +451,25 @@ namespace MLInVehSensorAnalysis
             }
         }
 
-        /* 数据点自动选中和显示（可同时多轴数据显示）=====待完善 */
-        [DllImport("User32.dll")]  //引用user32.dll动态链接库
-        private static extern bool SetCursorPos(int x,int y);  //使用库中定义的api
-        private void chartForXYZ_MouseMove(object sender, MouseEventArgs e)
-        {
-            double xViewMinPixelPos = chartForXYZ.ChartAreas[0].AxisX.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisX.ScaleView.ViewMinimum);  //转换为对应的像素坐标
-            double xViewMaxPixelPos = chartForXYZ.ChartAreas[0].AxisX.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisX.ScaleView.ViewMaximum);
-            //double yViewMinPixelPos = chartForXYZ.ChartAreas[0].AxisY.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisY.ScaleView.ViewMinimum);
-            //double yViewMaxPixelPos = chartForXYZ.ChartAreas[0].AxisY.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisY.ScaleView.ViewMaximum);
+        /* 数据点自动选中和显示（可同时多轴数据显示）待完善 */
+        //[DllImport("User32.dll")]  //引用user32.dll动态链接库
+        //private static extern bool SetCursorPos(int x,int y);  //使用库中定义的api
+        //private void chartForXYZ_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    //double xViewMinPixelPos = chartForXYZ.ChartAreas[0].AxisX.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisX.ScaleView.ViewMinimum);  //转换为对应的像素坐标
+        //    //double xViewMaxPixelPos = chartForXYZ.ChartAreas[0].AxisX.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisX.ScaleView.ViewMaximum);
+        //    ////double yViewMinPixelPos = chartForXYZ.ChartAreas[0].AxisY.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisY.ScaleView.ViewMinimum);
+        //    ////double yViewMaxPixelPos = chartForXYZ.ChartAreas[0].AxisY.ValueToPixelPosition(chartForXYZ.ChartAreas[0].AxisY.ScaleView.ViewMaximum);
 
-            if ((e.X >= xViewMinPixelPos) && (e.X <= xViewMaxPixelPos))
-            {//在chart图表数据示图内
-                //ToolTipEventArgs tip= chartForXYZ_GetToolTipText;
+        //    //if ((e.X >= xViewMinPixelPos) && (e.X <= xViewMaxPixelPos))
+        //    //{//在chart图表数据示图内
+        //    //    //ToolTipEventArgs tip= chartForXYZ_GetToolTipText;
 
-                var area = chartForXYZ.ChartAreas[0];
-                double xValue = chartForXYZ.ChartAreas[0].AxisX.PixelPositionToValue(e.X);
-                double yValue = chartForXYZ.ChartAreas[0].AxisX.PixelPositionToValue(e.Y);
-
-                // int i = tip.HitTestResult.PointIndex;
-                //DataPoint dp = e.HitTestResult.Series.Points[i];
-                //tip.Text = string.Format("{0:N0}", dp.YValues[0]);
-                //int xPos = (int)xValue; 
-                //int yPos = (int)yValue;
-                //SetCursorPos(xPos,yPos);
-
-                //chartForXYZ.ChartAreas[0].CursorX.IsUserEnabled = true;
-                //chartForXYZ.ChartAreas[0].CursorY.IsUserEnabled = true;
-
-                //chartForXYZ.ChartAreas[0].CursorX.Position = xValue;
-                //chartForXYZ.ChartAreas[0].CursorY.Position = yValue;
-            }
-        }
+        //    //    var area = chartForXYZ.ChartAreas[0];
+        //    //    double xValue = chartForXYZ.ChartAreas[0].AxisX.PixelPositionToValue(e.X);
+        //    //    double yValue = chartForXYZ.ChartAreas[0].AxisX.PixelPositionToValue(e.Y);
+        //    //}
+        //}
 
         private void AxisXDisplay_CheckedChanged(object sender, EventArgs e)
         {

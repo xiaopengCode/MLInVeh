@@ -59,13 +59,13 @@
             this.checkBoxYDisplay = new System.Windows.Forms.CheckBox();
             this.checkBoxXDisplay = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonImportDataPosChange = new System.Windows.Forms.Button();
+            this.buttonSaveDataPosChange = new System.Windows.Forms.Button();
+            this.textBoxImportDataPos = new System.Windows.Forms.TextBox();
+            this.textBoxSaveDataPos = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBoxSaveDataPos = new System.Windows.Forms.TextBox();
-            this.textBoxImportDataPos = new System.Windows.Forms.TextBox();
-            this.buttonSaveDataPosChange = new System.Windows.Forms.Button();
-            this.buttonImportDataPosChange = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartForXYZ)).BeginInit();
@@ -201,7 +201,7 @@
             // timerForSerialAutoScan
             // 
             this.timerForSerialAutoScan.Enabled = true;
-            this.timerForSerialAutoScan.Interval = 800;
+            this.timerForSerialAutoScan.Interval = 400;
             this.timerForSerialAutoScan.Tick += new System.EventHandler(this.timerForSerialAutoScan_Tick);
             // 
             // groupBox2
@@ -256,7 +256,6 @@
             this.chartForXYZ.TabIndex = 0;
             this.chartForXYZ.Text = "chart1";
             this.chartForXYZ.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartForXYZ_GetToolTipText);
-            this.chartForXYZ.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseMove);
             // 
             // groupBox3
             // 
@@ -347,12 +346,45 @@
             this.groupBox4.Controls.Add(this.textBoxSaveDataPos);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(12, 196);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(144, 163);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "数据选项";
+            // 
+            // buttonImportDataPosChange
+            // 
+            this.buttonImportDataPosChange.Location = new System.Drawing.Point(101, 85);
+            this.buttonImportDataPosChange.Name = "buttonImportDataPosChange";
+            this.buttonImportDataPosChange.Size = new System.Drawing.Size(37, 23);
+            this.buttonImportDataPosChange.TabIndex = 5;
+            this.buttonImportDataPosChange.Text = "更改";
+            this.buttonImportDataPosChange.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveDataPosChange
+            // 
+            this.buttonSaveDataPosChange.Location = new System.Drawing.Point(101, 29);
+            this.buttonSaveDataPosChange.Name = "buttonSaveDataPosChange";
+            this.buttonSaveDataPosChange.Size = new System.Drawing.Size(37, 23);
+            this.buttonSaveDataPosChange.TabIndex = 4;
+            this.buttonSaveDataPosChange.Text = "更改";
+            this.buttonSaveDataPosChange.UseVisualStyleBackColor = true;
+            // 
+            // textBoxImportDataPos
+            // 
+            this.textBoxImportDataPos.Location = new System.Drawing.Point(6, 114);
+            this.textBoxImportDataPos.Name = "textBoxImportDataPos";
+            this.textBoxImportDataPos.Size = new System.Drawing.Size(132, 21);
+            this.textBoxImportDataPos.TabIndex = 3;
+            // 
+            // textBoxSaveDataPos
+            // 
+            this.textBoxSaveDataPos.Location = new System.Drawing.Point(6, 58);
+            this.textBoxSaveDataPos.Name = "textBoxSaveDataPos";
+            this.textBoxSaveDataPos.Size = new System.Drawing.Size(132, 21);
+            this.textBoxSaveDataPos.TabIndex = 2;
             // 
             // button2
             // 
@@ -380,44 +412,12 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
-            // textBoxSaveDataPos
-            // 
-            this.textBoxSaveDataPos.Location = new System.Drawing.Point(6, 58);
-            this.textBoxSaveDataPos.Name = "textBoxSaveDataPos";
-            this.textBoxSaveDataPos.Size = new System.Drawing.Size(132, 21);
-            this.textBoxSaveDataPos.TabIndex = 2;
-            // 
-            // textBoxImportDataPos
-            // 
-            this.textBoxImportDataPos.Location = new System.Drawing.Point(6, 114);
-            this.textBoxImportDataPos.Name = "textBoxImportDataPos";
-            this.textBoxImportDataPos.Size = new System.Drawing.Size(132, 21);
-            this.textBoxImportDataPos.TabIndex = 3;
-            // 
-            // buttonSaveDataPosChange
-            // 
-            this.buttonSaveDataPosChange.Location = new System.Drawing.Point(101, 29);
-            this.buttonSaveDataPosChange.Name = "buttonSaveDataPosChange";
-            this.buttonSaveDataPosChange.Size = new System.Drawing.Size(37, 23);
-            this.buttonSaveDataPosChange.TabIndex = 4;
-            this.buttonSaveDataPosChange.Text = "更改";
-            this.buttonSaveDataPosChange.UseVisualStyleBackColor = true;
-            // 
-            // buttonImportDataPosChange
-            // 
-            this.buttonImportDataPosChange.Location = new System.Drawing.Point(101, 85);
-            this.buttonImportDataPosChange.Name = "buttonImportDataPosChange";
-            this.buttonImportDataPosChange.Size = new System.Drawing.Size(37, 23);
-            this.buttonImportDataPosChange.TabIndex = 5;
-            this.buttonImportDataPosChange.Text = "更改";
-            this.buttonImportDataPosChange.UseVisualStyleBackColor = true;
-            // 
             // GeomagneticSensorAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1002, 544);
+            this.ClientSize = new System.Drawing.Size(1002, 534);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -428,7 +428,6 @@
             this.Name = "GeomagneticSensorAnalysis";
             this.Text = "地磁传感器分析 V1.0  ";
             this.Load += new System.EventHandler(this.GeomagneticSensorAnalysis_Load);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseMove);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
