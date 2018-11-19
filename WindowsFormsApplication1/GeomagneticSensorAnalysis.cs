@@ -113,7 +113,6 @@ namespace MLInVehSensorAnalysis
             groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
             groupBox3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            groupBox4.ForeColor = System.Drawing.Color.DeepSkyBlue;
         }
 
         private void serialPort_button_Click(object sender, EventArgs e)//串口打开和关闭
@@ -375,17 +374,6 @@ namespace MLInVehSensorAnalysis
             
             if (richTextBox1.InvokeRequired)  //判断是否需要调用Invoke函数进行处理，保证线程安全
             {
-                int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height+ richTextBox1.Font.Size));
-                if (writeLines> (boxTextLine+1))  //+1：Show multiple rows
-                {
-                    writeLines = 0;
-                    this.Invoke(new Action(() =>
-                    {
-                        richTextBox1.Clear();
-                    }
-                    ));
-                }
-                writeLines++;
 
                 int dataLength = (s.Length / 2)+ s.Length;
                 char[] data = new char[dataLength];
@@ -408,6 +396,35 @@ namespace MLInVehSensorAnalysis
                     richTextBox1.Text += showData;
                 }
                 ));
+
+                if ((textBoxSaveDataPos.Text!=null)&&(buttonSaveData.Text == "取消保存"))
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        richTextBox1.SaveFile(textBoxSaveDataPos.Text, RichTextBoxStreamType.PlainText);
+
+                        int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height + richTextBox1.Font.Size));
+                        if (writeLines > (boxTextLine + 1))  //+1：Show multiple rows
+                        {
+                            writeLines = 0;
+                            richTextBox1.Clear();
+                        }
+                        writeLines++;
+                    }
+                    ));
+                }
+
+                //int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height + richTextBox1.Font.Size));
+                //if (writeLines > (boxTextLine + 1))  //+1：Show multiple rows
+                //{
+                //    writeLines = 0;
+                //    this.Invoke(new Action(() =>
+                //    {
+                //        richTextBox1.Clear();
+                //    }
+                //    ));
+                //}
+                //writeLines++;
             }
             else
             {
@@ -540,6 +557,38 @@ namespace MLInVehSensorAnalysis
             else
             {
                 chartForXYZ.Series[2].MarkerStyle = MarkerStyle.None;
+            }
+        }
+
+        private void buttonSaveDataPosChange_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "文本文件(*.txt)|*.txt";
+            sfd.FileName = "XYZDATA";
+            sfd.DefaultExt = "txt";
+            sfd.AddExtension = true;
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+                textBoxSaveDataPos.Text = sfd.FileName;
+            }
+        }
+
+        private void buttonSaveData_Click(object sender, EventArgs e)
+        {
+            if (buttonSaveData.Text == "保存数据")
+            {
+                if (textBoxSaveDataPos.Text == "")
+                {
+                    MessageBox.Show("请打开保存的位置！");
+                }
+                else
+                {
+                    buttonSaveData.Text = "取消保存";
+                }
+            }
+            else
+            {
+                buttonSaveData.Text = "保存数据";
             }
         }
     }

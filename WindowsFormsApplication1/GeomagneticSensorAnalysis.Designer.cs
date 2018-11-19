@@ -64,7 +64,7 @@
             this.textBoxImportDataPos = new System.Windows.Forms.TextBox();
             this.textBoxSaveDataPos = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSaveData = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -246,7 +246,7 @@
             series2.Name = "Y轴";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Color = System.Drawing.Color.DeepSkyBlue;
+            series3.Color = System.Drawing.Color.DodgerBlue;
             series3.Legend = "Legend1";
             series3.Name = "Z轴";
             this.chartForXYZ.Series.Add(series1);
@@ -345,7 +345,7 @@
             this.groupBox4.Controls.Add(this.textBoxImportDataPos);
             this.groupBox4.Controls.Add(this.textBoxSaveDataPos);
             this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.buttonSaveData);
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(12, 196);
             this.groupBox4.Name = "groupBox4";
@@ -371,6 +371,7 @@
             this.buttonSaveDataPosChange.TabIndex = 4;
             this.buttonSaveDataPosChange.Text = "更改";
             this.buttonSaveDataPosChange.UseVisualStyleBackColor = true;
+            this.buttonSaveDataPosChange.Click += new System.EventHandler(this.buttonSaveDataPosChange_Click);
             // 
             // textBoxImportDataPos
             // 
@@ -395,14 +396,15 @@
             this.button2.Text = "数据导入";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonSaveData
             // 
-            this.button1.Location = new System.Drawing.Point(6, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "保存数据";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSaveData.Location = new System.Drawing.Point(6, 29);
+            this.buttonSaveData.Name = "buttonSaveData";
+            this.buttonSaveData.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveData.TabIndex = 0;
+            this.buttonSaveData.Text = "保存数据";
+            this.buttonSaveData.UseVisualStyleBackColor = true;
+            this.buttonSaveData.Click += new System.EventHandler(this.buttonSaveData_Click);
             // 
             // richTextBox1
             // 
@@ -464,7 +466,7 @@
         private System.Windows.Forms.CheckBox checkBoxXDisplay;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSaveData;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.CheckBox checkBoxZMark;
         private System.Windows.Forms.CheckBox checkBoxYMark;
