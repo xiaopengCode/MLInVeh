@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
 using System.IO.Ports;
 using System.Windows.Forms.DataVisualization.Charting;  //chart 相关引用
 
@@ -394,37 +395,25 @@ namespace MLInVehSensorAnalysis
                 this.Invoke(new Action(() =>
                 {
                     richTextBox1.Text += showData;
+                    if ((textBoxSaveDataPos.Text != null) && (buttonSaveData.Text == "取消保存"))
+                    {
+                        //richTextBox1.SaveFile(textBoxSaveDataPos.Text, RichTextBoxStreamType.PlainText);
+                        using (FileStream fs = new FileStream(sfd.FileName, FileMode.OpenOrCreate, FileAccess.Write))
+                        {
+                            byte[] buf = Encoding.Default.GetBytes(richTextBox1.Text);
+                            fs.Write(buf, 0, buf.Length);
+                        }
+                    }
+
+                    int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height + richTextBox1.Font.Size));
+                    if (writeLines > (boxTextLine + 1))  //+1：Show multiple rows
+                    {
+                        writeLines = 0;
+                        richTextBox1.Clear();
+                    }
+                    writeLines++;
                 }
                 ));
-
-                if ((textBoxSaveDataPos.Text!=null)&&(buttonSaveData.Text == "取消保存"))
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        richTextBox1.SaveFile(textBoxSaveDataPos.Text, RichTextBoxStreamType.PlainText);
-
-                        int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height + richTextBox1.Font.Size));
-                        if (writeLines > (boxTextLine + 1))  //+1：Show multiple rows
-                        {
-                            writeLines = 0;
-                            richTextBox1.Clear();
-                        }
-                        writeLines++;
-                    }
-                    ));
-                }
-
-                //int boxTextLine = (int)(richTextBox1.Height / (richTextBox1.Font.Height + richTextBox1.Font.Size));
-                //if (writeLines > (boxTextLine + 1))  //+1：Show multiple rows
-                //{
-                //    writeLines = 0;
-                //    this.Invoke(new Action(() =>
-                //    {
-                //        richTextBox1.Clear();
-                //    }
-                //    ));
-                //}
-                //writeLines++;
             }
             else
             {
@@ -560,13 +549,14 @@ namespace MLInVehSensorAnalysis
             }
         }
 
+        SaveFileDialog sfd = new SaveFileDialog();
         private void buttonSaveDataPosChange_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "文本文件(*.txt)|*.txt";
             sfd.FileName = "XYZDATA";
             sfd.DefaultExt = "txt";
             sfd.AddExtension = true;
+            sfd.RestoreDirectory = true; 
             if (sfd.ShowDialog()==DialogResult.OK)
             {
                 textBoxSaveDataPos.Text = sfd.FileName;
