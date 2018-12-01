@@ -339,6 +339,7 @@ namespace MLInVehSensorAnalysis
         }
 
         static int writeLines = 0;
+        static long fsPos=0;  //save file data begin pos.
         private void serialPortDataDelegateShow(string s)
         {
             char[] XYZData = new char[12];
@@ -400,8 +401,10 @@ namespace MLInVehSensorAnalysis
                         //richTextBox1.SaveFile(textBoxSaveDataPos.Text, RichTextBoxStreamType.PlainText);
                         using (FileStream fs = new FileStream(sfd.FileName, FileMode.OpenOrCreate, FileAccess.Write))
                         {
-                            byte[] buf = Encoding.Default.GetBytes(richTextBox1.Text);
+                            byte[] buf = Encoding.Default.GetBytes(showData);
+                            fs.Seek(fsPos, SeekOrigin.Begin);
                             fs.Write(buf, 0, buf.Length);
+                            fsPos += buf.Length;
                         }
                     }
 
