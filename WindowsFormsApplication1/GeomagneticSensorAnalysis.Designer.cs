@@ -52,6 +52,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chartForXYZ = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOrdinate = new System.Windows.Forms.CheckBox();
+            this.checkBoxAbscissa = new System.Windows.Forms.CheckBox();
             this.checkBoxZMark = new System.Windows.Forms.CheckBox();
             this.checkBoxYMark = new System.Windows.Forms.CheckBox();
             this.checkBoxXMark = new System.Windows.Forms.CheckBox();
@@ -90,6 +92,7 @@
             this.groupBox1.Controls.Add(this.comboBoxForBaudRate);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.comboBoxForSerialPort);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(144, 178);
@@ -99,6 +102,7 @@
             // 
             // buttonForSerialOpenClose
             // 
+            this.buttonForSerialOpenClose.ForeColor = System.Drawing.Color.Black;
             this.buttonForSerialOpenClose.Location = new System.Drawing.Point(26, 149);
             this.buttonForSerialOpenClose.Name = "buttonForSerialOpenClose";
             this.buttonForSerialOpenClose.Size = new System.Drawing.Size(75, 23);
@@ -207,9 +211,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.chartForXYZ);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(162, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(828, 363);
+            this.groupBox2.Size = new System.Drawing.Size(828, 347);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "XYZ磁轴波形图";
@@ -217,9 +222,11 @@
             // chartForXYZ
             // 
             chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
             chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
             chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
             chartArea1.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
             chartArea1.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -237,45 +244,69 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Color = System.Drawing.Color.Red;
             series1.Legend = "Legend1";
-            series1.Name = "X轴";
+            series1.Name = "X";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series2.Color = System.Drawing.Color.Black;
-            series2.IsXValueIndexed = true;
             series2.Legend = "Legend1";
-            series2.Name = "Y轴";
+            series2.Name = "Y";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series3.Color = System.Drawing.Color.DodgerBlue;
             series3.Legend = "Legend1";
-            series3.Name = "Z轴";
+            series3.Name = "Z";
             this.chartForXYZ.Series.Add(series1);
             this.chartForXYZ.Series.Add(series2);
             this.chartForXYZ.Series.Add(series3);
-            this.chartForXYZ.Size = new System.Drawing.Size(822, 343);
+            this.chartForXYZ.Size = new System.Drawing.Size(822, 327);
             this.chartForXYZ.TabIndex = 0;
             this.chartForXYZ.Text = "chart1";
             this.chartForXYZ.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartForXYZ_GetToolTipText);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBoxOrdinate);
+            this.groupBox3.Controls.Add(this.checkBoxAbscissa);
             this.groupBox3.Controls.Add(this.checkBoxZMark);
             this.groupBox3.Controls.Add(this.checkBoxYMark);
             this.groupBox3.Controls.Add(this.checkBoxXMark);
             this.groupBox3.Controls.Add(this.checkBoxZDisplay);
             this.groupBox3.Controls.Add(this.checkBoxYDisplay);
             this.groupBox3.Controls.Add(this.checkBoxXDisplay);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(12, 365);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(144, 157);
+            this.groupBox3.Size = new System.Drawing.Size(144, 164);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "显示设置";
             // 
+            // checkBoxOrdinate
+            // 
+            this.checkBoxOrdinate.AutoSize = true;
+            this.checkBoxOrdinate.Location = new System.Drawing.Point(6, 129);
+            this.checkBoxOrdinate.Name = "checkBoxOrdinate";
+            this.checkBoxOrdinate.Size = new System.Drawing.Size(84, 16);
+            this.checkBoxOrdinate.TabIndex = 7;
+            this.checkBoxOrdinate.Text = "纵坐标网格";
+            this.checkBoxOrdinate.UseVisualStyleBackColor = true;
+            this.checkBoxOrdinate.CheckedChanged += new System.EventHandler(this.checkBoxOrdinate_CheckedChanged);
+            // 
+            // checkBoxAbscissa
+            // 
+            this.checkBoxAbscissa.AutoSize = true;
+            this.checkBoxAbscissa.Location = new System.Drawing.Point(6, 95);
+            this.checkBoxAbscissa.Name = "checkBoxAbscissa";
+            this.checkBoxAbscissa.Size = new System.Drawing.Size(84, 16);
+            this.checkBoxAbscissa.TabIndex = 6;
+            this.checkBoxAbscissa.Text = "横坐标网格";
+            this.checkBoxAbscissa.UseVisualStyleBackColor = true;
+            this.checkBoxAbscissa.CheckedChanged += new System.EventHandler(this.checkBoxAbscissa_CheckedChanged);
+            // 
             // checkBoxZMark
             // 
             this.checkBoxZMark.AutoSize = true;
-            this.checkBoxZMark.Location = new System.Drawing.Point(48, 111);
+            this.checkBoxZMark.Location = new System.Drawing.Point(48, 64);
             this.checkBoxZMark.Name = "checkBoxZMark";
             this.checkBoxZMark.Size = new System.Drawing.Size(90, 16);
             this.checkBoxZMark.TabIndex = 5;
@@ -286,7 +317,7 @@
             // checkBoxYMark
             // 
             this.checkBoxYMark.AutoSize = true;
-            this.checkBoxYMark.Location = new System.Drawing.Point(48, 64);
+            this.checkBoxYMark.Location = new System.Drawing.Point(48, 42);
             this.checkBoxYMark.Name = "checkBoxYMark";
             this.checkBoxYMark.Size = new System.Drawing.Size(90, 16);
             this.checkBoxYMark.TabIndex = 4;
@@ -308,7 +339,7 @@
             // checkBoxZDisplay
             // 
             this.checkBoxZDisplay.AutoSize = true;
-            this.checkBoxZDisplay.Location = new System.Drawing.Point(6, 111);
+            this.checkBoxZDisplay.Location = new System.Drawing.Point(6, 64);
             this.checkBoxZDisplay.Name = "checkBoxZDisplay";
             this.checkBoxZDisplay.Size = new System.Drawing.Size(42, 16);
             this.checkBoxZDisplay.TabIndex = 2;
@@ -319,7 +350,7 @@
             // checkBoxYDisplay
             // 
             this.checkBoxYDisplay.AutoSize = true;
-            this.checkBoxYDisplay.Location = new System.Drawing.Point(6, 64);
+            this.checkBoxYDisplay.Location = new System.Drawing.Point(6, 42);
             this.checkBoxYDisplay.Name = "checkBoxYDisplay";
             this.checkBoxYDisplay.Size = new System.Drawing.Size(42, 16);
             this.checkBoxYDisplay.TabIndex = 1;
@@ -346,7 +377,7 @@
             this.groupBox4.Controls.Add(this.textBoxSaveDataPos);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.buttonSaveData);
-            this.groupBox4.ForeColor = System.Drawing.Color.Black;
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
             this.groupBox4.Location = new System.Drawing.Point(12, 196);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(144, 163);
@@ -356,6 +387,7 @@
             // 
             // buttonImportDataPosChange
             // 
+            this.buttonImportDataPosChange.ForeColor = System.Drawing.Color.Black;
             this.buttonImportDataPosChange.Location = new System.Drawing.Point(101, 85);
             this.buttonImportDataPosChange.Name = "buttonImportDataPosChange";
             this.buttonImportDataPosChange.Size = new System.Drawing.Size(37, 23);
@@ -365,6 +397,7 @@
             // 
             // buttonSaveDataPosChange
             // 
+            this.buttonSaveDataPosChange.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveDataPosChange.Location = new System.Drawing.Point(101, 29);
             this.buttonSaveDataPosChange.Name = "buttonSaveDataPosChange";
             this.buttonSaveDataPosChange.Size = new System.Drawing.Size(37, 23);
@@ -389,6 +422,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(6, 85);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -398,6 +432,7 @@
             // 
             // buttonSaveData
             // 
+            this.buttonSaveData.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveData.Location = new System.Drawing.Point(6, 29);
             this.buttonSaveData.Name = "buttonSaveData";
             this.buttonSaveData.Size = new System.Drawing.Size(75, 23);
@@ -408,9 +443,10 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(162, 381);
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
+            this.richTextBox1.Location = new System.Drawing.Point(162, 365);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(828, 141);
+            this.richTextBox1.Size = new System.Drawing.Size(828, 164);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
@@ -419,7 +455,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1002, 534);
+            this.ClientSize = new System.Drawing.Size(1002, 541);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -428,7 +464,7 @@
             this.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeomagneticSensorAnalysis";
-            this.Text = "地磁传感器分析 V1.0  ";
+            this.Text = "MLInVeh SensorAnalysis";
             this.Load += new System.EventHandler(this.GeomagneticSensorAnalysis_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -475,6 +511,8 @@
         private System.Windows.Forms.TextBox textBoxSaveDataPos;
         private System.Windows.Forms.Button buttonImportDataPosChange;
         private System.Windows.Forms.Button buttonSaveDataPosChange;
+        private System.Windows.Forms.CheckBox checkBoxAbscissa;
+        private System.Windows.Forms.CheckBox checkBoxOrdinate;
     }
 }
 

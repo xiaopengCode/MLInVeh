@@ -109,11 +109,6 @@ namespace MLInVehSensorAnalysis
             checkBoxXDisplay.Checked = true;
             checkBoxYDisplay.Checked = true;
             checkBoxZDisplay.Checked = true;
-
-            /* groupBox字体颜色 */
-            groupBox1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            groupBox2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            groupBox3.ForeColor = System.Drawing.Color.DeepSkyBlue;
         }
 
         private void serialPort_button_Click(object sender, EventArgs e)//串口打开和关闭
@@ -582,6 +577,30 @@ namespace MLInVehSensorAnalysis
             else
             {
                 buttonSaveData.Text = "保存数据";
+            }
+        }
+
+        private void checkBoxAbscissa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAbscissa.Checked)
+            {
+                chartForXYZ.ChartAreas[0].AxisX.MajorGrid.Enabled=true;
+            }
+            else
+            {
+                chartForXYZ.ChartAreas[0].AxisX.MajorGrid.Enabled =false;
+            }
+        }
+
+        private void checkBoxOrdinate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxOrdinate.Checked)
+            {
+                chartForXYZ.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
+            }
+            else
+            {
+                chartForXYZ.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             }
         }
     }
