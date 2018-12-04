@@ -68,6 +68,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSaveData = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartForXYZ)).BeginInit();
@@ -234,7 +236,6 @@
             chartArea1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
             chartArea1.Name = "ChartArea1";
             this.chartForXYZ.ChartAreas.Add(chartArea1);
-            this.chartForXYZ.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chartForXYZ.Legends.Add(legend1);
             this.chartForXYZ.Location = new System.Drawing.Point(3, 17);
@@ -513,6 +514,8 @@
         private System.Windows.Forms.Button buttonSaveDataPosChange;
         private System.Windows.Forms.CheckBox checkBoxAbscissa;
         private System.Windows.Forms.CheckBox checkBoxOrdinate;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 

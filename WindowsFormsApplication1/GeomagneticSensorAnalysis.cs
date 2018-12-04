@@ -26,6 +26,37 @@ namespace MLInVehSensorAnalysis
         private void GeomagneticSensorAnalysis_Load(object sender, EventArgs e)
         {
             SerialPort1Param_Load(serialPort1, comboBoxForSerialPort);//串口参数加载
+
+            /* chart init */
+            chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoom(0,100);
+
+            chartForXYZ.ChartAreas[0].CursorX.IsUserEnabled = true;  //启用游标界面
+            chartForXYZ.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;  //启用范围选择界面
+            chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoomable = true;  //启用缩放用户界面
+
+            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.IsPositionedInside = true;  //滚动条内嵌
+            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.Size = 5; //设置滚动条大小
+
+            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;
+            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.ButtonColor = Color.DarkSlateGray;// Color.DeepSkyBlue;
+            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.BackColor = Color.White;//Color.DarkSlateGray;
+            /* 自动放大与缩小的最小量 */
+            chartForXYZ.ChartAreas[0].AxisX.ScaleView.SmallScrollSize = double.NaN; //设置小滚动尺寸
+            chartForXYZ.ChartAreas[0].AxisX.ScaleView.SmallScrollMinSize = 5;  //最小滚动尺寸
+
+
+            chartForXYZ.ChartAreas[0].AxisX.Maximum = 1000;
+            chartForXYZ.ChartAreas[0].AxisX.Minimum = 1;
+
+            chartForXYZ.ChartAreas[0].AxisY.Maximum = 32768;
+            chartForXYZ.ChartAreas[0].AxisY.Minimum = -32768;
+
+            /* 显示选项 */
+            checkBoxXDisplay.Checked = true;
+            checkBoxYDisplay.Checked = true;
+            checkBoxZDisplay.Checked = true;
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;  //大小固定
         }
 
         private void SearchAndAddSerialToComboBox(SerialPort myPort, ComboBox myBox)
@@ -93,22 +124,6 @@ namespace MLInVehSensorAnalysis
                 }
 
             }
-
-            //chartForXYZ.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Milliseconds;
-            //chartForXYZ.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
-            //chartForXYZ.ChartAreas[0].AxisX.LabelStyle.IsEndLabelVisible = false;
-            chartForXYZ.ChartAreas[0].AxisX.Maximum = 100;
-            chartForXYZ.ChartAreas[0].AxisX.Minimum = 1;
-
-            //chartForXYZ.ChartAreas[0].AxisX.MajorGrid.IntervalType = DateTimeIntervalType.Milliseconds;
-            //chartForXYZ.ChartAreas[0].AxisX.MajorGrid.Interval = 10;
-            chartForXYZ.ChartAreas[0].AxisY.Maximum = 32768;
-            chartForXYZ.ChartAreas[0].AxisY.Minimum = -32768;
-
-            /* 显示选项 */
-            checkBoxXDisplay.Checked = true;
-            checkBoxYDisplay.Checked = true;
-            checkBoxZDisplay.Checked = true;
         }
 
         private void serialPort_button_Click(object sender, EventArgs e)//串口打开和关闭
