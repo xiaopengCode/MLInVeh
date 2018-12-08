@@ -35,7 +35,7 @@ namespace MLInVehSensorAnalysis
             chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoomable = true;  //启用缩放用户界面
 
             chartForXYZ.ChartAreas[0].AxisX.ScrollBar.IsPositionedInside = true;  //滚动条内嵌
-            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.Size = 5; //设置滚动条大小
+            chartForXYZ.ChartAreas[0].AxisX.ScrollBar.Size = 10; //设置滚动条大小
 
             chartForXYZ.ChartAreas[0].AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;
             chartForXYZ.ChartAreas[0].AxisX.ScrollBar.ButtonColor = Color.DarkSlateGray;// Color.DeepSkyBlue;
@@ -46,7 +46,7 @@ namespace MLInVehSensorAnalysis
 
 
             chartForXYZ.ChartAreas[0].AxisX.Maximum = 1000;
-            chartForXYZ.ChartAreas[0].AxisX.Minimum = 1;
+            chartForXYZ.ChartAreas[0].AxisX.Minimum = 0;
 
             chartForXYZ.ChartAreas[0].AxisY.Maximum = 32768;
             chartForXYZ.ChartAreas[0].AxisY.Minimum = -32768;
@@ -617,6 +617,40 @@ namespace MLInVehSensorAnalysis
             {
                 chartForXYZ.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             }
+        }
+        static int scrolUpperLimit=100;
+        static int scrolIncrement = 50;
+        private void chartForXYZ_MouseWheel(object sender,MouseEventArgs e)  //添加滚轮事件调用的方法
+        {
+            if (e.Delta > 0)  //正向
+            {
+                if ((scrolUpperLimit - scrolIncrement) >= 0)
+                {
+                    scrolUpperLimit -= scrolIncrement;
+                }
+                else
+                {
+                    scrolUpperLimit = 0;
+                }
+                chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoom(0, scrolUpperLimit);
+            }
+            else
+            {
+                if ((scrolUpperLimit + scrolIncrement) <= chartForXYZ.ChartAreas[0].AxisX.Maximum)
+                {
+                    scrolUpperLimit += scrolIncrement;
+                }
+                else
+                {
+                    scrolUpperLimit = (int)chartForXYZ.ChartAreas[0].AxisX.Maximum;
+                }
+                chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoom(0, scrolUpperLimit);
+            }
+        }
+
+        private void chartForXYZ_MouseEnter(object sender, EventArgs e)
+        {
+            this.chartForXYZ.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseWheel);  
         }
     }
     }

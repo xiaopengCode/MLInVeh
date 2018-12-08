@@ -263,6 +263,7 @@
             this.chartForXYZ.TabIndex = 0;
             this.chartForXYZ.Text = "chart1";
             this.chartForXYZ.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartForXYZ_GetToolTipText);
+            this.chartForXYZ.MouseEnter += new System.EventHandler(this.chartForXYZ_MouseEnter);
             // 
             // groupBox3
             // 
