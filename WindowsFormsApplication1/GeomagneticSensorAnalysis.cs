@@ -40,6 +40,8 @@ namespace MLInVehSensorAnalysis
             chartForXYZ.ChartAreas[0].AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;
             chartForXYZ.ChartAreas[0].AxisX.ScrollBar.ButtonColor = Color.DarkSlateGray;// Color.DeepSkyBlue;
             chartForXYZ.ChartAreas[0].AxisX.ScrollBar.BackColor = Color.White;//Color.DarkSlateGray;
+
+            this.chartForXYZ.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseWheel);  //添加滚轮事件
             /* 自动放大与缩小的最小量 */
             chartForXYZ.ChartAreas[0].AxisX.ScaleView.SmallScrollSize = double.NaN; //设置小滚动尺寸
             chartForXYZ.ChartAreas[0].AxisX.ScaleView.SmallScrollMinSize = 5;  //最小滚动尺寸
@@ -56,7 +58,7 @@ namespace MLInVehSensorAnalysis
             checkBoxYDisplay.Checked = true;
             checkBoxZDisplay.Checked = true;
 
-            FormBorderStyle = FormBorderStyle.FixedSingle;  //大小固定
+            FormBorderStyle = FormBorderStyle.FixedSingle;  //窗体大小固定
         }
 
         private void SearchAndAddSerialToComboBox(SerialPort myPort, ComboBox myBox)
@@ -646,11 +648,6 @@ namespace MLInVehSensorAnalysis
                 }
                 chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoom(0, scrolUpperLimit);
             }
-        }
-
-        private void chartForXYZ_MouseEnter(object sender, EventArgs e)
-        {
-            this.chartForXYZ.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.chartForXYZ_MouseWheel);  
         }
     }
     }

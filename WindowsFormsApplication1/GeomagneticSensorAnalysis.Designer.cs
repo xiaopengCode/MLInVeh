@@ -70,11 +70,13 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartForXYZ)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -216,7 +218,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(162, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(828, 347);
+            this.groupBox2.Size = new System.Drawing.Size(836, 347);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "XYZ磁轴波形图";
@@ -238,7 +240,7 @@
             this.chartForXYZ.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartForXYZ.Legends.Add(legend1);
-            this.chartForXYZ.Location = new System.Drawing.Point(3, 17);
+            this.chartForXYZ.Location = new System.Drawing.Point(3, 13);
             this.chartForXYZ.Name = "chartForXYZ";
             series1.BorderColor = System.Drawing.Color.Black;
             series1.ChartArea = "ChartArea1";
@@ -259,11 +261,10 @@
             this.chartForXYZ.Series.Add(series1);
             this.chartForXYZ.Series.Add(series2);
             this.chartForXYZ.Series.Add(series3);
-            this.chartForXYZ.Size = new System.Drawing.Size(822, 327);
+            this.chartForXYZ.Size = new System.Drawing.Size(827, 328);
             this.chartForXYZ.TabIndex = 0;
             this.chartForXYZ.Text = "chart1";
             this.chartForXYZ.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chartForXYZ_GetToolTipText);
-            this.chartForXYZ.MouseEnter += new System.EventHandler(this.chartForXYZ_MouseEnter);
             // 
             // groupBox3
             // 
@@ -276,7 +277,7 @@
             this.groupBox3.Controls.Add(this.checkBoxYDisplay);
             this.groupBox3.Controls.Add(this.checkBoxXDisplay);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(12, 365);
+            this.groupBox3.Location = new System.Drawing.Point(12, 195);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(144, 164);
             this.groupBox3.TabIndex = 4;
@@ -286,7 +287,7 @@
             // checkBoxOrdinate
             // 
             this.checkBoxOrdinate.AutoSize = true;
-            this.checkBoxOrdinate.Location = new System.Drawing.Point(6, 129);
+            this.checkBoxOrdinate.Location = new System.Drawing.Point(26, 128);
             this.checkBoxOrdinate.Name = "checkBoxOrdinate";
             this.checkBoxOrdinate.Size = new System.Drawing.Size(84, 16);
             this.checkBoxOrdinate.TabIndex = 7;
@@ -297,7 +298,7 @@
             // checkBoxAbscissa
             // 
             this.checkBoxAbscissa.AutoSize = true;
-            this.checkBoxAbscissa.Location = new System.Drawing.Point(6, 95);
+            this.checkBoxAbscissa.Location = new System.Drawing.Point(26, 97);
             this.checkBoxAbscissa.Name = "checkBoxAbscissa";
             this.checkBoxAbscissa.Size = new System.Drawing.Size(84, 16);
             this.checkBoxAbscissa.TabIndex = 6;
@@ -380,9 +381,9 @@
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.buttonSaveData);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(12, 196);
+            this.groupBox4.Location = new System.Drawing.Point(12, 366);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(144, 163);
+            this.groupBox4.Size = new System.Drawing.Size(144, 174);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "数据选项";
@@ -390,7 +391,7 @@
             // buttonImportDataPosChange
             // 
             this.buttonImportDataPosChange.ForeColor = System.Drawing.Color.Black;
-            this.buttonImportDataPosChange.Location = new System.Drawing.Point(101, 85);
+            this.buttonImportDataPosChange.Location = new System.Drawing.Point(101, 102);
             this.buttonImportDataPosChange.Name = "buttonImportDataPosChange";
             this.buttonImportDataPosChange.Size = new System.Drawing.Size(37, 23);
             this.buttonImportDataPosChange.TabIndex = 5;
@@ -410,7 +411,7 @@
             // 
             // textBoxImportDataPos
             // 
-            this.textBoxImportDataPos.Location = new System.Drawing.Point(6, 114);
+            this.textBoxImportDataPos.Location = new System.Drawing.Point(6, 131);
             this.textBoxImportDataPos.Name = "textBoxImportDataPos";
             this.textBoxImportDataPos.Size = new System.Drawing.Size(132, 21);
             this.textBoxImportDataPos.TabIndex = 3;
@@ -425,7 +426,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(6, 85);
+            this.button2.Location = new System.Drawing.Point(6, 102);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -446,23 +447,34 @@
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(162, 365);
+            this.richTextBox1.Location = new System.Drawing.Point(6, 20);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(828, 164);
+            this.richTextBox1.Size = new System.Drawing.Size(821, 148);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.richTextBox1);
+            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.Location = new System.Drawing.Point(165, 366);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(833, 174);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "实时数据";
             // 
             // GeomagneticSensorAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1002, 541);
-            this.Controls.Add(this.richTextBox1);
+            this.ClientSize = new System.Drawing.Size(1009, 552);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeomagneticSensorAnalysis";
@@ -476,6 +488,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -517,6 +530,7 @@
         private System.Windows.Forms.CheckBox checkBoxOrdinate;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
