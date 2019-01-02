@@ -13,6 +13,7 @@ using System.IO.Ports;
 using System.Windows.Forms.DataVisualization.Charting;  //chart 相关引用
 
 using System.Runtime.InteropServices;  //设置鼠标位置所引用的命名空间
+using System.Threading;
 
 namespace MLInVehSensorAnalysis
 {
@@ -22,7 +23,7 @@ namespace MLInVehSensorAnalysis
         {
             InitializeComponent();
         }
-
+        
         private void GeomagneticSensorAnalysis_Load(object sender, EventArgs e)
         {
             SerialPort1Param_Load(serialPort1, comboBoxForSerialPort);//串口参数加载
@@ -128,6 +129,7 @@ namespace MLInVehSensorAnalysis
             }
         }
 
+        bool openSerialPort=false;
         private void serialPort_button_Click(object sender, EventArgs e)//串口打开和关闭
         {
             //打开前对串口参数进行设置
@@ -137,7 +139,13 @@ namespace MLInVehSensorAnalysis
             {
                 try
                 {
+                    openSerialPort = false;
+                    serialPort1.DiscardInBuffer();//清空缓冲区
+                    Application.DoEvents();
+
+                    Thread.Sleep(200);
                     serialPort1.Close();
+                    
                     buttonForSerialOpenClose.Text = "打开串口";
 
                     timerForSerialAutoScan.Start();  //开启定时器对串口进行扫描
@@ -151,6 +159,8 @@ namespace MLInVehSensorAnalysis
             {
                 try
                 {
+                    openSerialPort = true;
+
                     serialPort1.PortName = comboBoxForSerialPort.Text;             //打开串口前需获取该端口的名称，否则会出现异常
                     serialPort1.Open();
 
@@ -324,23 +334,33 @@ namespace MLInVehSensorAnalysis
             try
             {
 
-                Byte[] dataReceived = new Byte[serialPort1.BytesToRead];  //数据接收数组
-                serialPort1.Read(dataReceived, 0, dataReceived.Length);     //读取数据
-                serialPort1.DiscardInBuffer();//清空缓冲区
-
-                serialByteQueue.dataToQueue(dataReceived);
-                while(serialByteQueue.PacketCheck())
+                if (openSerialPort == true)
                 {
-                    Byte[] newPacket = new Byte[serialByteQueue.getPacketLength()];
-                    serialByteQueue.getNewPacket(newPacket,newPacket.Length);
 
-                    string revStr = null;
-                    for (int i = 0; i < newPacket.Length; i++)
+                    Byte[] dataReceived = new Byte[serialPort1.BytesToRead];  //数据接收数组
+                    serialPort1.Read(dataReceived, 0, dataReceived.Length);     //读取数据
+                    serialPort1.DiscardInBuffer();//清空缓冲区
+
+                    serialByteQueue.dataToQueue(dataReceived);
+                    while (serialByteQueue.PacketCheck())
                     {
-                        revStr += newPacket[i].ToString("X2"); //16进制
+                        Byte[] newPacket = new Byte[serialByteQueue.getPacketLength()];
+                        serialByteQueue.getNewPacket(newPacket, newPacket.Length);
+
+                        string revStr = null;
+                        for (int i = 0; i < newPacket.Length; i++)
+                        {
+                            revStr += newPacket[i].ToString("X2"); //16进制
+                        }
+                        serialPortDataDelegateShow(revStr);
                     }
-                    serialPortDataDelegateShow(revStr);
+
                 }
+                else
+                {
+                    serialPort1.DiscardInBuffer();//清空缓冲区
+                }
+
 
 
             }
