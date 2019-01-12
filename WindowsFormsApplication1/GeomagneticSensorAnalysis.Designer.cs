@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeomagneticSensorAnalysis));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,7 +65,7 @@
             this.buttonSaveDataPosChange = new System.Windows.Forms.Button();
             this.textBoxImportDataPos = new System.Windows.Forms.TextBox();
             this.textBoxSaveDataPos = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonDataRead = new System.Windows.Forms.Button();
             this.buttonSaveData = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -223,42 +223,42 @@
             // 
             // chartForXYZ
             // 
-            chartArea3.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea3.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea3.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea3.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            chartArea3.BackImageTransparentColor = System.Drawing.Color.White;
-            chartArea3.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
-            chartArea3.Name = "ChartArea1";
-            this.chartForXYZ.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartForXYZ.Legends.Add(legend3);
+            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Triangle;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            chartArea1.BackImageTransparentColor = System.Drawing.Color.White;
+            chartArea1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
+            chartArea1.Name = "ChartArea1";
+            this.chartForXYZ.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartForXYZ.Legends.Add(legend1);
             this.chartForXYZ.Location = new System.Drawing.Point(3, 13);
             this.chartForXYZ.Name = "chartForXYZ";
-            series7.BorderColor = System.Drawing.Color.Black;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Color = System.Drawing.Color.Red;
-            series7.Legend = "Legend1";
-            series7.Name = "X";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Color = System.Drawing.Color.Black;
-            series8.Legend = "Legend1";
-            series8.Name = "Y";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series9.Color = System.Drawing.Color.DodgerBlue;
-            series9.Legend = "Legend1";
-            series9.Name = "Z";
-            this.chartForXYZ.Series.Add(series7);
-            this.chartForXYZ.Series.Add(series8);
-            this.chartForXYZ.Series.Add(series9);
+            series1.BorderColor = System.Drawing.Color.Black;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Red;
+            series1.Legend = "Legend1";
+            series1.Name = "X";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Black;
+            series2.Legend = "Legend1";
+            series2.Name = "Y";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.DodgerBlue;
+            series3.Legend = "Legend1";
+            series3.Name = "Z";
+            this.chartForXYZ.Series.Add(series1);
+            this.chartForXYZ.Series.Add(series2);
+            this.chartForXYZ.Series.Add(series3);
             this.chartForXYZ.Size = new System.Drawing.Size(827, 328);
             this.chartForXYZ.TabIndex = 0;
             this.chartForXYZ.Text = "chart1";
@@ -267,8 +267,8 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.checkBoxOrdinate);
-            this.groupBox3.Controls.Add(this.checkBoxAbscissa);
             this.groupBox3.Controls.Add(this.checkBoxZMark);
+            this.groupBox3.Controls.Add(this.checkBoxAbscissa);
             this.groupBox3.Controls.Add(this.checkBoxYMark);
             this.groupBox3.Controls.Add(this.checkBoxXMark);
             this.groupBox3.Controls.Add(this.checkBoxZDisplay);
@@ -285,7 +285,7 @@
             // checkBoxOrdinate
             // 
             this.checkBoxOrdinate.AutoSize = true;
-            this.checkBoxOrdinate.Location = new System.Drawing.Point(26, 128);
+            this.checkBoxOrdinate.Location = new System.Drawing.Point(6, 53);
             this.checkBoxOrdinate.Name = "checkBoxOrdinate";
             this.checkBoxOrdinate.Size = new System.Drawing.Size(84, 16);
             this.checkBoxOrdinate.TabIndex = 7;
@@ -296,7 +296,7 @@
             // checkBoxAbscissa
             // 
             this.checkBoxAbscissa.AutoSize = true;
-            this.checkBoxAbscissa.Location = new System.Drawing.Point(26, 97);
+            this.checkBoxAbscissa.Location = new System.Drawing.Point(6, 20);
             this.checkBoxAbscissa.Name = "checkBoxAbscissa";
             this.checkBoxAbscissa.Size = new System.Drawing.Size(84, 16);
             this.checkBoxAbscissa.TabIndex = 6;
@@ -307,7 +307,7 @@
             // checkBoxZMark
             // 
             this.checkBoxZMark.AutoSize = true;
-            this.checkBoxZMark.Location = new System.Drawing.Point(48, 64);
+            this.checkBoxZMark.Location = new System.Drawing.Point(48, 132);
             this.checkBoxZMark.Name = "checkBoxZMark";
             this.checkBoxZMark.Size = new System.Drawing.Size(90, 16);
             this.checkBoxZMark.TabIndex = 5;
@@ -318,7 +318,7 @@
             // checkBoxYMark
             // 
             this.checkBoxYMark.AutoSize = true;
-            this.checkBoxYMark.Location = new System.Drawing.Point(48, 42);
+            this.checkBoxYMark.Location = new System.Drawing.Point(48, 110);
             this.checkBoxYMark.Name = "checkBoxYMark";
             this.checkBoxYMark.Size = new System.Drawing.Size(90, 16);
             this.checkBoxYMark.TabIndex = 4;
@@ -329,7 +329,7 @@
             // checkBoxXMark
             // 
             this.checkBoxXMark.AutoSize = true;
-            this.checkBoxXMark.Location = new System.Drawing.Point(48, 20);
+            this.checkBoxXMark.Location = new System.Drawing.Point(48, 86);
             this.checkBoxXMark.Name = "checkBoxXMark";
             this.checkBoxXMark.Size = new System.Drawing.Size(90, 16);
             this.checkBoxXMark.TabIndex = 3;
@@ -340,7 +340,7 @@
             // checkBoxZDisplay
             // 
             this.checkBoxZDisplay.AutoSize = true;
-            this.checkBoxZDisplay.Location = new System.Drawing.Point(6, 64);
+            this.checkBoxZDisplay.Location = new System.Drawing.Point(6, 132);
             this.checkBoxZDisplay.Name = "checkBoxZDisplay";
             this.checkBoxZDisplay.Size = new System.Drawing.Size(42, 16);
             this.checkBoxZDisplay.TabIndex = 2;
@@ -351,7 +351,7 @@
             // checkBoxYDisplay
             // 
             this.checkBoxYDisplay.AutoSize = true;
-            this.checkBoxYDisplay.Location = new System.Drawing.Point(6, 42);
+            this.checkBoxYDisplay.Location = new System.Drawing.Point(6, 110);
             this.checkBoxYDisplay.Name = "checkBoxYDisplay";
             this.checkBoxYDisplay.Size = new System.Drawing.Size(42, 16);
             this.checkBoxYDisplay.TabIndex = 1;
@@ -362,7 +362,7 @@
             // checkBoxXDisplay
             // 
             this.checkBoxXDisplay.AutoSize = true;
-            this.checkBoxXDisplay.Location = new System.Drawing.Point(6, 20);
+            this.checkBoxXDisplay.Location = new System.Drawing.Point(6, 86);
             this.checkBoxXDisplay.Name = "checkBoxXDisplay";
             this.checkBoxXDisplay.Size = new System.Drawing.Size(42, 16);
             this.checkBoxXDisplay.TabIndex = 0;
@@ -376,7 +376,7 @@
             this.groupBox4.Controls.Add(this.buttonSaveDataPosChange);
             this.groupBox4.Controls.Add(this.textBoxImportDataPos);
             this.groupBox4.Controls.Add(this.textBoxSaveDataPos);
-            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.buttonDataRead);
             this.groupBox4.Controls.Add(this.buttonSaveData);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
             this.groupBox4.Location = new System.Drawing.Point(12, 366);
@@ -412,7 +412,7 @@
             this.textBoxImportDataPos.Location = new System.Drawing.Point(6, 131);
             this.textBoxImportDataPos.Name = "textBoxImportDataPos";
             this.textBoxImportDataPos.Size = new System.Drawing.Size(132, 21);
-            this.textBoxImportDataPos.TabIndex = 3;
+            this.textBoxImportDataPos.TabIndex = 6;
             // 
             // textBoxSaveDataPos
             // 
@@ -421,15 +421,16 @@
             this.textBoxSaveDataPos.Size = new System.Drawing.Size(132, 21);
             this.textBoxSaveDataPos.TabIndex = 2;
             // 
-            // button2
+            // buttonDataRead
             // 
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(6, 102);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "数据导入";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDataRead.ForeColor = System.Drawing.Color.Black;
+            this.buttonDataRead.Location = new System.Drawing.Point(6, 102);
+            this.buttonDataRead.Name = "buttonDataRead";
+            this.buttonDataRead.Size = new System.Drawing.Size(75, 23);
+            this.buttonDataRead.TabIndex = 1;
+            this.buttonDataRead.Text = "数据导入";
+            this.buttonDataRead.UseVisualStyleBackColor = true;
+            this.buttonDataRead.Click += new System.EventHandler(this.buttonDataRead_Click);
             // 
             // buttonSaveData
             // 
@@ -514,7 +515,7 @@
         private System.Windows.Forms.CheckBox checkBoxYDisplay;
         private System.Windows.Forms.CheckBox checkBoxXDisplay;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonDataRead;
         private System.Windows.Forms.Button buttonSaveData;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.CheckBox checkBoxZMark;

@@ -669,6 +669,19 @@ namespace MLInVehSensorAnalysis
                 chartForXYZ.ChartAreas[0].AxisX.ScaleView.Zoom(0, scrolUpperLimit);
             }
         }
+
+        OpenFileDialog ofd = new OpenFileDialog();
+        private void buttonDataRead_Click(object sender, EventArgs e)
+        {
+            ofd.Filter= "文本文件(*.txt)|*.txt";
+            ofd.ValidateNames = true;
+            ofd.CheckFileExists = true;
+            ofd.CheckPathExists = true;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBoxImportDataPos.Text = ofd.FileName;
+            }
+        }
     }
     }
 
