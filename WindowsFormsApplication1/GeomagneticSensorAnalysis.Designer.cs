@@ -53,8 +53,8 @@
             this.chartForXYZ = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBoxOrdinate = new System.Windows.Forms.CheckBox();
-            this.checkBoxAbscissa = new System.Windows.Forms.CheckBox();
             this.checkBoxZMark = new System.Windows.Forms.CheckBox();
+            this.checkBoxAbscissa = new System.Windows.Forms.CheckBox();
             this.checkBoxYMark = new System.Windows.Forms.CheckBox();
             this.checkBoxXMark = new System.Windows.Forms.CheckBox();
             this.checkBoxZDisplay = new System.Windows.Forms.CheckBox();
@@ -293,17 +293,6 @@
             this.checkBoxOrdinate.UseVisualStyleBackColor = true;
             this.checkBoxOrdinate.CheckedChanged += new System.EventHandler(this.checkBoxOrdinate_CheckedChanged);
             // 
-            // checkBoxAbscissa
-            // 
-            this.checkBoxAbscissa.AutoSize = true;
-            this.checkBoxAbscissa.Location = new System.Drawing.Point(6, 20);
-            this.checkBoxAbscissa.Name = "checkBoxAbscissa";
-            this.checkBoxAbscissa.Size = new System.Drawing.Size(84, 16);
-            this.checkBoxAbscissa.TabIndex = 6;
-            this.checkBoxAbscissa.Text = "横坐标网格";
-            this.checkBoxAbscissa.UseVisualStyleBackColor = true;
-            this.checkBoxAbscissa.CheckedChanged += new System.EventHandler(this.checkBoxAbscissa_CheckedChanged);
-            // 
             // checkBoxZMark
             // 
             this.checkBoxZMark.AutoSize = true;
@@ -314,6 +303,17 @@
             this.checkBoxZMark.Text = "Z轴数据标记";
             this.checkBoxZMark.UseVisualStyleBackColor = true;
             this.checkBoxZMark.CheckedChanged += new System.EventHandler(this.AxisZMark_CheckedChanged);
+            // 
+            // checkBoxAbscissa
+            // 
+            this.checkBoxAbscissa.AutoSize = true;
+            this.checkBoxAbscissa.Location = new System.Drawing.Point(6, 20);
+            this.checkBoxAbscissa.Name = "checkBoxAbscissa";
+            this.checkBoxAbscissa.Size = new System.Drawing.Size(84, 16);
+            this.checkBoxAbscissa.TabIndex = 6;
+            this.checkBoxAbscissa.Text = "横坐标网格";
+            this.checkBoxAbscissa.UseVisualStyleBackColor = true;
+            this.checkBoxAbscissa.CheckedChanged += new System.EventHandler(this.checkBoxAbscissa_CheckedChanged);
             // 
             // checkBoxYMark
             // 
@@ -393,8 +393,9 @@
             this.buttonImportDataPosChange.Name = "buttonImportDataPosChange";
             this.buttonImportDataPosChange.Size = new System.Drawing.Size(37, 23);
             this.buttonImportDataPosChange.TabIndex = 5;
-            this.buttonImportDataPosChange.Text = "更改";
+            this.buttonImportDataPosChange.Text = "打开";
             this.buttonImportDataPosChange.UseVisualStyleBackColor = true;
+            this.buttonImportDataPosChange.Click += new System.EventHandler(this.buttonImportDataPosChange_Click);
             // 
             // buttonSaveDataPosChange
             // 
@@ -403,7 +404,7 @@
             this.buttonSaveDataPosChange.Name = "buttonSaveDataPosChange";
             this.buttonSaveDataPosChange.Size = new System.Drawing.Size(37, 23);
             this.buttonSaveDataPosChange.TabIndex = 4;
-            this.buttonSaveDataPosChange.Text = "更改";
+            this.buttonSaveDataPosChange.Text = "打开";
             this.buttonSaveDataPosChange.UseVisualStyleBackColor = true;
             this.buttonSaveDataPosChange.Click += new System.EventHandler(this.buttonSaveDataPosChange_Click);
             // 
