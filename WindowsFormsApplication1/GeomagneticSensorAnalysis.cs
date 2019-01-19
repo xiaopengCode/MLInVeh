@@ -671,6 +671,7 @@ namespace MLInVehSensorAnalysis
         }
 
         OpenFileDialog ofd = new OpenFileDialog();
+        byte[] fileData = new byte[1000];
         private void buttonDataRead_Click(object sender, EventArgs e)
         {
             if (buttonDataRead.Text == "数据导入")
@@ -683,9 +684,33 @@ namespace MLInVehSensorAnalysis
                 {
                     buttonDataRead.Text = "正在导入";
 
+                    try
+                    {
+                        FileStream file = new FileStream(textBoxImportDataPos.Text, FileMode.Open);
+                        file.Seek(0, SeekOrigin.Begin);
+                        file.Read(fileData,0,999);
 
+                        serialByteQueue.dataToQueue(fileData);
+                        while (serialByteQueue.PacketCheck())
+                        {
+                            Byte[] newPacket = new Byte[serialByteQueue.getPacketLength()];
+                            serialByteQueue.getNewPacket(newPacket, newPacket.Length);
 
+                            string revStr = null;
+                            for (int i = 0; i < newPacket.Length; i++)
+                            {
+                                revStr += newPacket[i].ToString("X2"); //16进制
+                            }
+                            serialPortDataDelegateShow(revStr);
+                        }
 
+                        file.Close();
+                        buttonDataRead.Text = "数据导入";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
